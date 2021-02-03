@@ -123,7 +123,7 @@ div.dashboardContainer {
 @media only screen and (min-device-width: 751px)
 {
     div.dashboardItem {
-        flex: 20%;
+        flex: 25%;
     }
     div.sectionToggle {
         font-size: small;
@@ -227,7 +227,7 @@ label.configLabel
 
 div.marineForecast, div.marineConditions {
     line-height: 1.1;
-    font-size: smaller;
+    font-size: small;
 }
 
 div.marineForecastEntry {
