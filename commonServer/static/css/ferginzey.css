@@ -91,13 +91,15 @@ div.dashboardContainer {
         font-size: 100px !important;
     }
 
-    div.dashboardTimestamp, div.nodeControl, div.dashboardIp, div.smallDarkGray, div.marineArea
+    div.dashboardTimestamp, div.nodeControl, div.dashboardIp, div.smallDarkGray, div.marineArea,
+    div.marineForecast, div.marineConditions
     {
         font-size: 45px !important;
     }
 
-    div.marineForecast, div.marineConditions {
-        font-size: 40px !important;
+    div.dashboardHumidity, div.dashboardPressure
+    {
+        font-size: 55px !important;
     }
 
     div.marineForecastEntry {
