@@ -17,6 +17,11 @@ div.ferginzey_title {
     color: #333;
 }
 
+.nav_link {
+    display: inline-block;
+
+}
+
 div.latest_reading {
     background: lightgrey;
 }
@@ -66,6 +71,10 @@ div.dashboardContainer {
         font-size: 40px !important;
         padding-left: 15px !important;
         padding-right: 15px !important;
+    }
+
+    .nav_links {
+        font-size: 75px;
     }
 
     input[type=checkbox] {
@@ -125,10 +134,13 @@ div.dashboardContainer {
 @media only screen and (min-device-width: 751px)
 {
     div.dashboardItem {
-        flex: 25%;
+        flex: 24%;
     }
     div.sectionToggle {
         font-size: small;
+    }
+    .nav_links {
+        font-size: 25px;
     }
 }
 
