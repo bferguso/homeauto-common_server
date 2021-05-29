@@ -120,9 +120,14 @@ div.dashboardContainer {
         font-size: 45px !important;
     }
 
-    div.dashboardIp, div.marineArea
+    div.dashboardIp, div.marineArea, label.configLabel
     {
         font-size: 40px !important;
+    }
+
+    label.configLabel
+    {
+        min-width: 175px;
     }
 
     div.marineForecast, div.marineConditions
@@ -235,6 +240,7 @@ label.configLabel
 {
     font-weight: normal;
     font-size: small;
+    min-width: 50px;
 }
 
 /* Forecast classes */
@@ -262,4 +268,14 @@ div.marineLocation {
 
 div.rowEven {
     background-color: rgba(255,255,255, .4);
+}
+
+#overlayimg, .loadingimage {
+    margin-left: 40%;
+}
+
+.loadingText {
+    display: table-cell;
+    padding-top: 20px;
+    padding-right: 10px;
 }
