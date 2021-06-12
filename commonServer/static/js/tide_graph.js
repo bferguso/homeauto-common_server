@@ -64,7 +64,7 @@ var addTideGraph = function(tide_data, container)
     });
 };
 
-var loadTide = function(stationName, container, loading_icon) {
+var loadTide = function(stationName, container, loading_icon, tides_endpoint) {
     request_data = {};
     request_data.location = {};
     request_data.location.name = stationName;
@@ -74,7 +74,7 @@ var loadTide = function(stationName, container, loading_icon) {
 
     $.ajax({
         method: "GET",
-        url: "http://cabin.local/homeServer/getTides?location_name="+stationName,
+        url: tides_endpoint+"?location_name="+stationName,
         success: function (data) {
             console.log(data);
             if (data.success)
