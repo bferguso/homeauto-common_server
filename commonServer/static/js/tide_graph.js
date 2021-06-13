@@ -1,18 +1,28 @@
 var addTideGraph = function(tide_data, container)
 {
     stationId = tide_data.station_id;
+
+    var entries = [];
+    var now = Date.now();
+    var entryDate;
+    var currentHeight;
+    tide_data.tide_entries.forEach( function(entry, index) {
+        entryDate = new Date(entry.time);
+        entries.push({"x": entryDate, "y": parseFloat(entry.height_ft)})
+        if (! currentHeight && entryDate.getTime() > now && entries.length > 1)
+        {
+            currentHeight = getCurrentTideHeight(entries[entries.length-2], entries[entries.length-1])
+        }
+    });
+
+//    console.log(JSON.stringify(entries));
+//    console.log("CurrentHeight: "+currentHeight);
+
     tideDiv = $("<div style='display: block; padding-bottom: 20px;'></div>")
-    tideDiv.append('<div>'+tide_data.location+'</div>');
+    tideDiv.append('<div>'+tide_data.location+(currentHeight ? ' ('+currentHeight+' ft)' : '')+'</div>');
     tideDiv.append("<div style='max-width: 1200px'><canvas id='tides"+stationId+"' ></canvas></div>");
     container.append(tideDiv);
     ctx = $("#tides"+stationId);
-
-    var entries = [];
-    tide_data.tide_entries.forEach( function(entry, index) {
-        entries.push({"x": new Date(entry.time), "y": parseFloat(entry.height_ft)})
-    });
-
-    console.log(JSON.stringify(entries));
 
     var tideChart = new Chart(ctx, {
         type: "line",
@@ -49,11 +59,6 @@ var addTideGraph = function(tide_data, container)
                             {
                                 return moment(dateToShow).format('HH:mm')
                             }
-                            /*
-                            console.log(newval);
-                            console.log(values[index]);
-                            return "$"+value;
-                             */
                         },
                     }
                 }]
@@ -113,4 +118,14 @@ var loadTide = function(stationName, container, loading_icon, tides_endpoint) {
             showMessage("errorMessage", "Unable to get tide data: "+textStatus + ": " + errorThrown);
         }
     });
+}
+
+var getCurrentTideHeight = function(previousTideEntry, nextTideEntry)
+{
+    var now = Date.now();
+    var prevTime = previousTideEntry.x.getTime();
+    var nextTime = nextTideEntry.x.getTime();
+    var A = Math.PI* (((now - prevTime)/(nextTime - prevTime)) + 1)
+    var h = previousTideEntry.y + (nextTideEntry.y - previousTideEntry.y) * ((Math.cos(A) + 1)/2)
+    return h.toFixed(1);
 }
