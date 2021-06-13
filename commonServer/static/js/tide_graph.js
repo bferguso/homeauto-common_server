@@ -35,7 +35,26 @@ var addTideGraph = function(tide_data, container)
                     time: {
                         displayFormats: {
                             'hour': 'D MMM HH:00'
-                        }
+                        },
+                        stepSize: 6
+                    },
+                    ticks: {
+                        callback: function (value, index, values) {
+                            dateToShow = new Date(values[index].value);
+                            if (index === 0 || dateToShow.getHours() < 6)
+                            {
+                               return moment(dateToShow).format('D MMM Y HH:mm')
+                            }
+                            else
+                            {
+                                return moment(dateToShow).format('HH:mm')
+                            }
+                            /*
+                            console.log(newval);
+                            console.log(values[index]);
+                            return "$"+value;
+                             */
+                        },
                     }
                 }]
             },
