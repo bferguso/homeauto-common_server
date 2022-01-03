@@ -57,3 +57,29 @@ var getLineWidth = function (location)
     }
     return 6;
 }
+
+var ajaxoverlay;
+function overlayOn() {
+    //overlay = document.getElementById("overlay");
+//    overlay.onclick = overlayOff;
+    //overlay.style.display = "block";
+    ajaxoverlay.show();
+}
+
+function overlayOff()
+{
+    //document.getElementById("overlay").style.display = "none";
+    //$("#overlay").hide();
+    ajaxoverlay.hide();
+}
+
+$(function() {
+  ajaxoverlay = $("#overlay");
+  if (ajaxoverlay) {
+      ajaxoverlay.hide();
+  }
+});
+/*
+$(document).ajaxStart(function () { overlayOn(); })
+$(document).ajaxStop(function () { overlayOff(); })
+ */

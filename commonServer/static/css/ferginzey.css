@@ -279,3 +279,8 @@ div.rowEven {
     padding-top: 20px;
     padding-right: 10px;
 }
+
+.visitors {
+    color: darkgray;
+    font-style: italic;
+}

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ferginzey.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Chart.min.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/chosen.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fa-all.min.css') }}"/>
 
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <!-- Latest compiled and minified JavaScript -->
@@ -61,6 +62,9 @@
 </head>
 <body>
 <div class="ferginzey_title">Marine Weather Page Builder</div>
+<div class="nav_links">
+    <div class="nav_link"><a href="{{ url_for('home')  }}"><i class="fas fa-home" title="Home Page"></i></a></div>
+</div>
 <hr>
 <div>
     <div class="table">
