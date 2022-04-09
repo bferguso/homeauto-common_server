@@ -106,7 +106,7 @@ div.dashboardContainer {
         font-size: 45px !important;
     }
 
-    div.dashboardHumidity, div.dashboardPressure
+    div.dashboardHumidity, div.dashboardPressure, div.dashboardVoc, div.dashboardCo2
     {
         font-size: 55px !important;
     }
@@ -187,13 +187,13 @@ div.dashboardTemp
     text-align: center;
 }
 
-div.dashboardHumidity
+div.dashboardHumidity, div.dashboardVoc
 {
     float: left;
     font-size: medium;
 }
 
-div.dashboardPressure, div.nodeControl
+div.dashboardPressure, div.nodeControl, div.dashboardCo2
 {
     float: right;
     font-size: medium;
@@ -222,6 +222,8 @@ div.dashboardIp, div.marineArea
 
 div.dashboardTemp.readingWarning,
 div.dashboardHumidity.readingWarning,
+div.dashboardVoc.readingWarning,
+div.dashboardCo2.readingWarning,
 div.dashboardTimestamp.readingWarning,
 div.forecastTitle.readingWarning
 {
@@ -230,6 +232,8 @@ div.forecastTitle.readingWarning
 
 div.dashboardTemp.readingImportant,
 div.dashboardHumidity.readingImportant,
+div.dashboardVoc.readingWarning,
+div.dashboardCo2.readingWarning,
 div.dashboardTimestamp.readingImportant,
 div.readingImportant
 {
